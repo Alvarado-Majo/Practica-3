@@ -1,0 +1,17 @@
+# Visual Studio
+.vs/
+**/.vs/
+
+# Compilación de .NET
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Archivos personales de Visual Studio
+*.user
+*.suo
+*.vsidx
+
+# Logs
+*.log
