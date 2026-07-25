@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="VotacionNacional.BILL/VotacionNacional.BILL.csproj" />
+  <Project Path="VotacionNacional.DAL/VotacionNacional.DAL.csproj" />
+  <Project Path="VotacionNacional/VotacionNacional.csproj" />
+</Solution>
