@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj": {}
+    "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj": {}
   },
   "projects": {
-    "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj": {
+    "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
         "projectName": "VotacionNacional.BLL",
-        "projectPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
-        "packagesPath": "C:\\Users\\XSF\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\obj\\",
+        "projectPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
+        "packagesPath": "C:\\Users\\jabad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\XSF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jabad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -34,8 +34,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj": {
-                "projectPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj"
+              "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj": {
+                "projectPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj"
               }
             }
           }
@@ -57,9 +57,21 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.10, )"
+            },
             "Microsoft.Extensions.Configuration.UserSecrets": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[10.0.10, )"
+            },
+            "Scalar.AspNetCore": {
+              "target": "Package",
+              "version": "[2.16.16, )"
             }
           },
           "imports": [
@@ -356,20 +368,20 @@
         }
       }
     },
-    "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj": {
+    "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj",
         "projectName": "VotacionNacional.DAL",
-        "projectPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj",
-        "packagesPath": "C:\\Users\\XSF\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\obj\\",
+        "projectPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj",
+        "packagesPath": "C:\\Users\\jabad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\XSF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jabad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -405,6 +417,10 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[10.0.10, )"
@@ -424,6 +440,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[10.0.10, )"
+            },
+            "Scalar.AspNetCore": {
+              "target": "Package",
+              "version": "[2.16.16, )"
             }
           },
           "imports": [
@@ -720,20 +740,20 @@
         }
       }
     },
-    "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj": {
+    "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj",
+        "projectUniqueName": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj",
         "projectName": "VotacionNacional",
-        "projectPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj",
-        "packagesPath": "C:\\Users\\XSF\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional\\obj\\",
+        "projectPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional\\VotacionNacional.csproj",
+        "packagesPath": "C:\\Users\\jabad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\XSF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jabad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -750,8 +770,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj": {
-                "projectPath": "C:\\Users\\XSF\\Documents\\U\\VII Cuatrimestre\\Progra Avanzada\\practica pa\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj"
+              "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj": {
+                "projectPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj"
               }
             }
           }
@@ -772,6 +792,20 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.10, )"
+            },
+            "Scalar.AspNetCore": {
+              "target": "Package",
+              "version": "[2.16.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

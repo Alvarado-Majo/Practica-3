@@ -7,7 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.10" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.16.16" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\VotacionNacional.BILL\VotacionNacional.BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Votacion\" />
+    <Folder Include="Views\Partido\" />
+    <Folder Include="Views\Votante\" />
   </ItemGroup>
 
 </Project>
