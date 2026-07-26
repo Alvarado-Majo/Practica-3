@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VotacionNacional.BILL\VotacionNacional.BILL.csproj" />
+    <ProjectReference Include="..\VotacionNacional.BILL\VotacionNacional.BLL.csproj" />
     <ProjectReference Include="..\VotacionNacional.DAL\VotacionNacional.DAL.csproj" />
   </ItemGroup>
 
