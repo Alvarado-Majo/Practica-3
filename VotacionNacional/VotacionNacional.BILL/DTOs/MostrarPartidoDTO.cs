@@ -7,6 +7,7 @@ namespace VotacionNacional.BLL.DTOs
 {
     public class MostrarPartidoDTO
     {
+        public int PartidoId { get; set; }
 
         public string Nombre { get; set; } = string.Empty;
 
@@ -14,11 +15,8 @@ namespace VotacionNacional.BLL.DTOs
 
         public string? ImagenUrl { get; set; }
 
-        public int votos
-        {
-            get; set;
-        }
+        public int Votos { get; set; }
 
-
-        }
+        public bool Activo { get; set; }
+    }
 }

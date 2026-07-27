@@ -1,0 +1,250 @@
+﻿@model IEnumerable<VotacionNacional.BLL.DTOs.MostrarPartidoDTO>
+
+@{
+    ViewData["Title"] = "Partidos";
+}
+
+<div class="management-page">
+
+    <div class="management-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Administración
+            </span>
+
+            <h1 class="management-title">
+                Gestión de partidos
+            </h1>
+
+            <p class="management-description">
+                Consulta, registra, edita y administra los partidos participantes.
+            </p>
+        </div>
+
+        <a asp-controller="Partido"
+           asp-action="Crear"
+           class="btn-management-primary">
+
+            <i class="bi bi-plus-circle-fill"></i>
+            Nuevo partido
+
+        </a>
+
+    </div>
+
+    @if (TempData["Exito"] != null)
+    {
+        <div class="alert management-alert-success">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>@TempData["Exito"]</span>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert management-alert-error">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>@TempData["Error"]</span>
+        </div>
+    }
+
+    <div class="management-card">
+
+        <div class="management-card-header">
+
+            <div>
+                <h2>Partidos registrados</h2>
+                <p>
+                    Listado de organizaciones inscritas en el sistema.
+                </p>
+            </div>
+
+            <span class="management-count">
+                @(Model?.Count() ?? 0) registros
+            </span>
+
+        </div>
+
+        <div class="management-card-body">
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="management-empty">
+
+                    <div class="management-empty-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <div>
+                        <h3>No hay partidos registrados</h3>
+
+                        <p>
+                            Registra el primer partido para comenzar a utilizar el sistema.
+                        </p>
+
+                        <a asp-controller="Partido"
+                           asp-action="Crear"
+                           class="management-empty-link">
+
+                            Registrar partido
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+
+                    <table class="table management-table">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Partido</th>
+                                <th>Siglas</th>
+                                <th>Votos</th>
+                                <th>Estado</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @{
+                                int numero = 1;
+                            }
+
+                            @foreach (var partido in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        <span class="row-number">
+                                            @numero
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <div class="party-cell">
+
+                                            <div class="party-logo">
+
+                                                @if (!string.IsNullOrWhiteSpace(partido.ImagenUrl))
+                                                {
+                                                    <img src="@partido.ImagenUrl"
+                                                         alt="Logo de @partido.Nombre"
+                                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+                                                    <span class="party-logo-fallback"
+                                                          style="display:none;">
+
+                                                        @(
+                                                            !string.IsNullOrWhiteSpace(partido.Siglas)
+                                                                ? partido.Siglas.Substring(0, 1).ToUpper()
+                                                                : "P"
+                                                        )
+
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="party-logo-fallback">
+
+                                                        @(
+                                                            !string.IsNullOrWhiteSpace(partido.Siglas)
+                                                                ? partido.Siglas.Substring(0, 1).ToUpper()
+                                                                : "P"
+                                                        )
+
+                                                    </span>
+                                                }
+
+                                            </div>
+
+                                            <div>
+                                                <strong>@partido.Nombre</strong>
+                                                <small>Partido registrado</small>
+                                            </div>
+
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <span class="party-acronym">
+                                            @partido.Siglas
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="vote-count">
+                                            <i class="bi bi-check2-square"></i>
+                                            @partido.Votos
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        @if (partido.Activo)
+                                        {
+                                            <span class="status-active">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                Activo
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-inactive">
+                                                <i class="bi bi-x-circle-fill"></i>
+                                                Inactivo
+                                            </span>
+                                        }
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        <div class="action-group">
+
+                                            <a asp-controller="Partido"
+                                               asp-action="Editar"
+                                               asp-route-id="@partido.PartidoId"
+                                               class="action-button action-edit"
+                                               title="Editar partido">
+
+                                                <i class="bi bi-pencil-square"></i>
+
+                                            </a>
+
+                                            <a asp-controller="Partido"
+                                               asp-action="Eliminar"
+                                               asp-route-id="@partido.PartidoId"
+                                               class="action-button action-delete"
+                                               title="Eliminar partido">
+
+                                                <i class="bi bi-trash3-fill"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                                numero++;
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

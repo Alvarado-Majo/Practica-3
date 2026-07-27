@@ -18,8 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Votacion\" />
-    <Folder Include="Views\Partido\" />
-    <Folder Include="Views\Votante\" />
   </ItemGroup>
 
 </Project>

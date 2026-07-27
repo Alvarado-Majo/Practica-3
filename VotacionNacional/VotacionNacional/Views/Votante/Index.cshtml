@@ -1,0 +1,222 @@
+﻿@model IEnumerable<VotacionNacional.BLL.DTOs.VotanteDto>
+
+@{
+    ViewData["Title"] = "Votantes";
+}
+
+<div class="management-page">
+
+    <div class="management-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Administración
+            </span>
+
+            <h1 class="management-title">
+                Gestión de votantes
+            </h1>
+
+            <p class="management-description">
+                Consulta, registra, edita y administra las personas autorizadas para votar.
+            </p>
+        </div>
+
+        <a asp-controller="Votante"
+           asp-action="Crear"
+           class="btn-management-primary">
+
+            <i class="bi bi-person-plus-fill"></i>
+            Registrar votante
+
+        </a>
+
+    </div>
+
+    @if (TempData["Exito"] != null)
+    {
+        <div class="alert alert-success management-alert-success">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>@TempData["Exito"]</span>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger management-alert-error">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>@TempData["Error"]</span>
+        </div>
+    }
+
+    <div class="management-card">
+
+        <div class="management-card-header">
+
+            <div>
+                <h2>Votantes registrados</h2>
+                <p>Listado de personas habilitadas en el sistema.</p>
+            </div>
+
+            <span class="management-count">
+                @(Model?.Count() ?? 0) registros
+            </span>
+
+        </div>
+
+        <div class="management-card-body">
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="management-empty">
+
+                    <div class="management-empty-icon">
+                        <i class="bi bi-person-vcard"></i>
+                    </div>
+
+                    <div>
+                        <h3>No hay votantes registrados</h3>
+
+                        <p>
+                            Registra el primer votante para comenzar a utilizar el sistema.
+                        </p>
+
+                        <a asp-controller="Votante"
+                           asp-action="Crear"
+                           class="management-empty-link">
+
+                            Registrar votante
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+
+                    <table class="table management-table">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Cédula</th>
+                                <th>Nombre completo</th>
+                                <th>Fecha de nacimiento</th>
+                                <th>Estado</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @{
+                                int numero = 1;
+                            }
+
+                            @foreach (var votante in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        <span class="row-number">
+                                            @numero
+                                        </span>
+                                    </td>
+
+                                    <td class="fw-semibold">
+                                        @votante.Cedula
+                                    </td>
+
+                                    <td>
+                                        <div class="person-cell">
+
+                                            <div class="person-avatar">
+                                                @(
+                                                    !string.IsNullOrWhiteSpace(votante.Nombre)
+                                                        ? votante.Nombre.Substring(0, 1).ToUpper()
+                                                        : "V"
+                                                )
+                                            </div>
+
+                                            <div>
+                                                <strong>
+                                                    @votante.Nombre
+                                                    @votante.PrimerApellido
+                                                    @votante.SegundoApellido
+                                                </strong>
+
+                                                <small>Votante registrado</small>
+                                            </div>
+
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        @votante.FechaNacimiento.ToString("dd/MM/yyyy")
+                                    </td>
+
+                                    <td>
+                                        @if (votante.Activo)
+                                        {
+                                            <span class="status-active">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                Activo
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-inactive">
+                                                <i class="bi bi-x-circle-fill"></i>
+                                                Inactivo
+                                            </span>
+                                        }
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        <div class="action-group">
+
+                                            <a asp-controller="Votante"
+                                               asp-action="Editar"
+                                               asp-route-id="@votante.VotanteId"
+                                               class="action-button action-edit"
+                                               title="Editar votante">
+
+                                                <i class="bi bi-pencil-square"></i>
+
+                                            </a>
+
+                                            <a asp-controller="Votante"
+                                               asp-action="Eliminar"
+                                               asp-route-id="@votante.VotanteId"
+                                               class="action-button action-delete"
+                                               title="Eliminar votante">
+
+                                                <i class="bi bi-trash3-fill"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                                numero++;
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

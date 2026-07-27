@@ -58,61 +58,74 @@ namespace VotacionNacional.BLL.Services
 
         public async Task<List<MostrarPartidoDTO>> GetAllPartidosAsync()
         {
-            var entidades = await   _partidoRepository.ObtenerPartidosAsync();
-            return entidades.Select( entidades => new MostrarPartidoDTO
+            var entidades =
+                await _partidoRepository.ObtenerPartidosAsync();
+
+            return entidades.Select(x => new MostrarPartidoDTO
             {
-                Nombre = entidades.Nombre,
-                Siglas = entidades.Siglas,
-                ImagenUrl = entidades.ImagenUrl,
-                votos = entidades.Votos.Count
+                PartidoId = x.PartidoId,
+                Nombre = x.Nombre,
+                Siglas = x.Siglas,
+                ImagenUrl = x.ImagenUrl,
+                Activo = x.Activo,
+                Votos = x.Votos.Count
             }).ToList();
         }
 
-        public async Task<MostrarPartidoDTO> GetPartidoByIdAsync(int id)
+        public async Task<MostrarPartidoDTO?> GetPartidoByIdAsync(int id)
         {
-            var partido = await _partidoRepository.ObtenerPartidosPorIdAsync(id);
+            var partido =
+                await _partidoRepository.ObtenerPartidosPorIdAsync(id);
+
             if (partido == null)
-            {
                 return null;
-            }
+
             return new MostrarPartidoDTO
             {
+                PartidoId = partido.PartidoId,
                 Nombre = partido.Nombre,
                 Siglas = partido.Siglas,
                 ImagenUrl = partido.ImagenUrl,
-                votos = partido.Votos.Count
+                Activo = partido.Activo,
+                Votos = partido.Votos.Count
             };
         }
 
-        public async Task<MostrarPartidoDTO> GetPartidoByNombreAsync(string nombre)
+        public async Task<MostrarPartidoDTO?> GetPartidoByNombreAsync(string nombre)
         {
-            var partido = await _partidoRepository.ObtenerPartidosPorNombreAsync(nombre);
+            var partido =
+                await _partidoRepository.ObtenerPartidosPorNombreAsync(nombre);
+
             if (partido == null)
-            {
                 return null;
-            }
+
             return new MostrarPartidoDTO
             {
+                PartidoId = partido.PartidoId,
                 Nombre = partido.Nombre,
                 Siglas = partido.Siglas,
                 ImagenUrl = partido.ImagenUrl,
-                votos = partido.Votos.Count
+                Activo = partido.Activo,
+                Votos = partido.Votos.Count
             };
         }
 
-        public async Task<MostrarPartidoDTO> GetPartidoBySiglasAsync(string siglas)
+        public async Task<MostrarPartidoDTO?> GetPartidoBySiglasAsync(string siglas)
         {
-            var partido = await _partidoRepository.ObtenerPartidosPorSiglasAsync(siglas);
+            var partido =
+                await _partidoRepository.ObtenerPartidosPorSiglasAsync(siglas);
+
             if (partido == null)
-            {
                 return null;
-            }
+
             return new MostrarPartidoDTO
             {
+                PartidoId = partido.PartidoId,
                 Nombre = partido.Nombre,
                 Siglas = partido.Siglas,
                 ImagenUrl = partido.ImagenUrl,
-                votos = partido.Votos.Count
+                Activo = partido.Activo,
+                Votos = partido.Votos.Count
             };
         }
 

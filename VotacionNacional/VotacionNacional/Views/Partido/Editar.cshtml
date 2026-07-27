@@ -1,0 +1,206 @@
+﻿@model VotacionNacional.BLL.DTOs.ActualizarPartidoDTO
+
+@{
+    ViewData["Title"] = "Editar Partido";
+    int partidoId = ViewBag.PartidoId;
+}
+
+<div class="form-page">
+
+    <div class="form-page-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Partidos
+            </span>
+
+            <h1 class="management-title">
+                Editar partido
+            </h1>
+
+            <p class="management-description">
+                Actualiza la información del partido seleccionado.
+            </p>
+        </div>
+
+        <a asp-controller="Partido"
+           asp-action="Index"
+           class="btn-form-back">
+
+            <i class="bi bi-arrow-left"></i>
+            Volver al listado
+
+        </a>
+
+    </div>
+
+    <div class="form-card">
+
+        <div class="form-card-banner">
+
+            <div class="form-banner-icon">
+                <i class="bi bi-pencil-square"></i>
+            </div>
+
+            <div>
+                <h2>Información del partido</h2>
+                <p>
+                    Modifica los datos necesarios y guarda los cambios.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="form-card-body">
+
+            <form asp-controller="Partido"
+                  asp-action="Editar"
+                  asp-route-id="@partidoId"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="management-alert-error">
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-field form-field-full">
+
+                        <label asp-for="Nombre">
+                            Nombre del partido
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-building"></i>
+
+                            <input asp-for="Nombre"
+                                   class="form-control"
+                                   placeholder="Nombre del partido" />
+
+                        </div>
+
+                        <span asp-validation-for="Nombre"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label asp-for="Siglas">
+                            Siglas
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-fonts"></i>
+
+                            <input asp-for="Siglas"
+                                   class="form-control"
+                                   placeholder="Siglas del partido" />
+
+                        </div>
+
+                        <span asp-validation-for="Siglas"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label asp-for="ImagenUrl">
+                            URL del logo
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-image"></i>
+
+                            <input asp-for="ImagenUrl"
+                                   class="form-control"
+                                   placeholder="https://sitio.com/logo.png" />
+
+                        </div>
+
+                        <span asp-validation-for="ImagenUrl"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field form-field-full">
+
+                        <div class="status-switch-card">
+
+                            <div>
+
+                                <span class="status-switch-icon">
+                                    <i class="bi bi-toggle-on"></i>
+                                </span>
+
+                                <div>
+                                    <strong>Estado del partido</strong>
+                                    <p>
+                                        Define si el partido estará disponible en el sistema.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="form-check form-switch">
+
+                                <input asp-for="Activo"
+                                       class="form-check-input"
+                                       type="checkbox"
+                                       role="switch" />
+
+                                <label asp-for="Activo"
+                                       class="form-check-label">
+                                    Activo
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <a asp-controller="Partido"
+                       asp-action="Index"
+                       class="btn-form-secondary">
+
+                        Cancelar
+
+                    </a>
+
+                    <button type="submit"
+                            class="btn-form-primary">
+
+                        <i class="bi bi-check2-circle"></i>
+                        Guardar cambios
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

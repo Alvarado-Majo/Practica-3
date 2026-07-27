@@ -2134,23 +2134,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jabad\\.nuget\\packages\\": {},
+    "C:\\Users\\maria\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\maria\\OneDrive\\Documentos\\GitHub\\Practica#3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
       "projectName": "VotacionNacional.BLL",
-      "projectPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
-      "packagesPath": "C:\\Users\\jabad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.BILL\\obj\\",
+      "projectPath": "C:\\Users\\maria\\OneDrive\\Documentos\\GitHub\\Practica#3\\VotacionNacional\\VotacionNacional.BILL\\VotacionNacional.BLL.csproj",
+      "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\maria\\OneDrive\\Documentos\\GitHub\\Practica#3\\VotacionNacional\\VotacionNacional.BILL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jabad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2159,7 +2159,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2167,8 +2166,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj": {
-              "projectPath": "C:\\Users\\jabad\\source\\repos\\Practica-3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj"
+            "C:\\Users\\maria\\OneDrive\\Documentos\\GitHub\\Practica#3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj": {
+              "projectPath": "C:\\Users\\maria\\OneDrive\\Documentos\\GitHub\\Practica#3\\VotacionNacional\\VotacionNacional.DAL\\VotacionNacional.DAL.csproj"
             }
           }
         }
@@ -2223,7 +2222,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

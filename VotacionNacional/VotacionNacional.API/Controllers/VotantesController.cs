@@ -15,6 +15,7 @@ namespace VotacionNacional.API.Controllers
             _votanteService = votanteService;
         }
 
+        // GET: api/Votantes
         [HttpGet]
         public async Task<ActionResult<List<VotanteDto>>> ObtenerTodos()
         {
@@ -24,9 +25,18 @@ namespace VotacionNacional.API.Controllers
             return Ok(votantes);
         }
 
+        // GET: api/Votantes/5
         [HttpGet("{id:int}")]
         public async Task<ActionResult<VotanteDto>> ObtenerPorId(int id)
         {
+            if (id <= 0)
+            {
+                return BadRequest(new
+                {
+                    mensaje = "El identificador del votante no es válido."
+                });
+            }
+
             VotanteDto? votante =
                 await _votanteService.ObtenerPorIdAsync(id);
 
@@ -41,12 +51,23 @@ namespace VotacionNacional.API.Controllers
             return Ok(votante);
         }
 
+        // GET: api/Votantes/cedula/123456789
         [HttpGet("cedula/{cedula}")]
         public async Task<ActionResult<VotanteDto>> ObtenerPorCedula(
             string cedula)
         {
+            if (string.IsNullOrWhiteSpace(cedula))
+            {
+                return BadRequest(new
+                {
+                    mensaje = "Debe proporcionar una cédula."
+                });
+            }
+
             VotanteDto? votante =
-                await _votanteService.ObtenerPorCedulaAsync(cedula);
+                await _votanteService.ObtenerPorCedulaAsync(
+                    cedula.Trim()
+                );
 
             if (votante is null)
             {
@@ -59,11 +80,18 @@ namespace VotacionNacional.API.Controllers
             return Ok(votante);
         }
 
+        // POST: api/Votantes
         [HttpPost]
         public async Task<ActionResult<VotanteDto>> Agregar(
             [FromBody] CrearVotanteDto dto)
         {
-            var respuesta = await _votanteService.AgregarAsync(dto);
+            if (!ModelState.IsValid)
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            var respuesta =
+                await _votanteService.AgregarAsync(dto);
 
             if (!respuesta.Resultado.Exitoso)
             {
@@ -73,17 +101,47 @@ namespace VotacionNacional.API.Controllers
                 });
             }
 
+            if (respuesta.Votante is null)
+            {
+                return StatusCode(
+                    StatusCodes.Status500InternalServerError,
+                    new
+                    {
+                        mensaje =
+                            "El votante fue procesado, pero no se obtuvo su información."
+                    }
+                );
+            }
+
             return CreatedAtAction(
                 nameof(ObtenerPorId),
-                new { id = respuesta.Votante!.VotanteId },
-                respuesta.Votante);
+                new
+                {
+                    id = respuesta.Votante.VotanteId
+                },
+                respuesta.Votante
+            );
         }
 
+        // PUT: api/Votantes/5
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Actualizar(
             int id,
             [FromBody] ActualizarVotanteDto dto)
         {
+            if (id <= 0)
+            {
+                return BadRequest(new
+                {
+                    mensaje = "El identificador del votante no es válido."
+                });
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return ValidationProblem(ModelState);
+            }
+
             ResultadoOperacionDto resultado =
                 await _votanteService.ActualizarAsync(id, dto);
 
@@ -109,9 +167,18 @@ namespace VotacionNacional.API.Controllers
             });
         }
 
+        // DELETE: api/Votantes/5
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Eliminar(int id)
         {
+            if (id <= 0)
+            {
+                return BadRequest(new
+                {
+                    mensaje = "El identificador del votante no es válido."
+                });
+            }
+
             ResultadoOperacionDto resultado =
                 await _votanteService.EliminarAsync(id);
 

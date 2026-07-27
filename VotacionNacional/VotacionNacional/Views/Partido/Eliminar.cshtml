@@ -1,0 +1,195 @@
+﻿@model VotacionNacional.BLL.DTOs.MostrarPartidoDTO
+
+@{
+    ViewData["Title"] = "Eliminar Partido";
+}
+
+<div class="form-page">
+
+    <div class="form-page-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Partidos
+            </span>
+
+            <h1 class="management-title">
+                Eliminar partido
+            </h1>
+
+            <p class="management-description">
+                Revisa la información antes de confirmar la eliminación.
+            </p>
+        </div>
+
+        <a asp-controller="Partido"
+           asp-action="Index"
+           class="btn-form-back">
+
+            <i class="bi bi-arrow-left"></i>
+            Volver al listado
+
+        </a>
+
+    </div>
+
+    <div class="delete-card">
+
+        <div class="delete-card-banner">
+
+            <div class="delete-warning-icon">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+
+            <div>
+                <h2>Confirmar eliminación</h2>
+
+                <p>
+                    Esta acción no se puede deshacer.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="delete-card-body">
+
+            <div class="delete-party-summary">
+
+                <div class="party-logo party-logo-large">
+
+                    @if (!string.IsNullOrWhiteSpace(Model.ImagenUrl))
+                    {
+                        <img src="@Model.ImagenUrl"
+                             alt="Logo de @Model.Nombre"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+                        <span class="party-logo-fallback"
+                              style="display:none;">
+
+                            @(
+                                !string.IsNullOrWhiteSpace(Model.Siglas)
+                                    ? Model.Siglas.Substring(0, 1).ToUpper()
+                                    : "P"
+                            )
+
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="party-logo-fallback">
+
+                            @(
+                                !string.IsNullOrWhiteSpace(Model.Siglas)
+                                    ? Model.Siglas.Substring(0, 1).ToUpper()
+                                    : "P"
+                            )
+
+                        </span>
+                    }
+
+                </div>
+
+                <div>
+
+                    <span class="delete-label">
+                        Partido seleccionado
+                    </span>
+
+                    <h3>@Model.Nombre</h3>
+
+                    <p>
+                        @Model.Siglas
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="delete-info-grid">
+
+                <div class="delete-info-item">
+
+                    <span>Nombre</span>
+                    <strong>@Model.Nombre</strong>
+
+                </div>
+
+                <div class="delete-info-item">
+
+                    <span>Siglas</span>
+                    <strong>@Model.Siglas</strong>
+
+                </div>
+
+                <div class="delete-info-item">
+
+                    <span>Votos registrados</span>
+                    <strong>@Model.Votos</strong>
+
+                </div>
+
+                <div class="delete-info-item">
+
+                    <span>Estado</span>
+
+                    @if (Model.Activo)
+                    {
+                        <strong class="delete-status-active">
+                            Activo
+                        </strong>
+                    }
+                    else
+                    {
+                        <strong class="delete-status-inactive">
+                            Inactivo
+                        </strong>
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="delete-warning-message">
+
+                <i class="bi bi-info-circle-fill"></i>
+
+                <span>
+                    Al eliminar este partido se perderá su información del sistema.
+                </span>
+
+            </div>
+
+            <form asp-controller="Partido"
+                  asp-action="EliminarConfirmado"
+                  asp-route-id="@Model.PartidoId"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions">
+
+                    <a asp-controller="Partido"
+                       asp-action="Index"
+                       class="btn-form-secondary">
+
+                        Cancelar
+
+                    </a>
+
+                    <button type="submit"
+                            class="btn-delete-primary">
+
+                        <i class="bi bi-trash3-fill"></i>
+                        Eliminar partido
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,182 @@
+﻿@model VotacionNacional.BLL.DTOs.VotanteDto
+
+@{
+    ViewData["Title"] = "Eliminar Votante";
+}
+
+<div class="form-page">
+
+    <div class="form-page-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Votantes
+            </span>
+
+            <h1 class="management-title">
+                Eliminar votante
+            </h1>
+
+            <p class="management-description">
+                Revisa la información antes de confirmar la eliminación.
+            </p>
+        </div>
+
+        <a asp-controller="Votante"
+           asp-action="Index"
+           class="btn-form-back">
+
+            <i class="bi bi-arrow-left"></i>
+            Volver al listado
+
+        </a>
+
+    </div>
+
+    <div class="delete-card">
+
+        <div class="delete-card-banner">
+
+            <div class="delete-warning-icon">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+
+            <div>
+                <h2>Confirmar eliminación</h2>
+
+                <p>
+                    Esta acción no se puede deshacer.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="delete-card-body">
+
+            <div class="delete-voter-summary">
+
+                <div class="delete-voter-avatar">
+
+                    @(
+                        !string.IsNullOrWhiteSpace(Model.Nombre)
+                            ? Model.Nombre.Substring(0, 1).ToUpper()
+                            : "V"
+                    )
+
+                </div>
+
+                <div>
+
+                    <span class="delete-label">
+                        Votante seleccionado
+                    </span>
+
+                    <h3>
+                        @Model.Nombre
+                        @Model.PrimerApellido
+                        @Model.SegundoApellido
+                    </h3>
+
+                    <p>
+                        Cédula @Model.Cedula
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="delete-info-grid">
+
+                <div class="delete-info-item">
+
+                    <span>Cédula</span>
+                    <strong>@Model.Cedula</strong>
+
+                </div>
+
+                <div class="delete-info-item">
+
+                    <span>Fecha de nacimiento</span>
+                    <strong>
+                        @Model.FechaNacimiento.ToString("dd/MM/yyyy")
+                    </strong>
+
+                </div>
+
+                <div class="delete-info-item">
+
+                    <span>Nombre completo</span>
+
+                    <strong>
+                        @Model.Nombre
+                        @Model.PrimerApellido
+                        @Model.SegundoApellido
+                    </strong>
+
+                </div>
+
+                <div class="delete-info-item">
+
+                    <span>Estado</span>
+
+                    @if (Model.Activo)
+                    {
+                        <strong class="delete-status-active">
+                            Activo
+                        </strong>
+                    }
+                    else
+                    {
+                        <strong class="delete-status-inactive">
+                            Inactivo
+                        </strong>
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="delete-warning-message">
+
+                <i class="bi bi-info-circle-fill"></i>
+
+                <span>
+                    Al eliminar este votante se perderá su información del sistema.
+                </span>
+
+            </div>
+
+            <form asp-controller="Votante"
+                  asp-action="EliminarConfirmado"
+                  asp-route-id="@Model.VotanteId"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions">
+
+                    <a asp-controller="Votante"
+                       asp-action="Index"
+                       class="btn-form-secondary">
+
+                        Cancelar
+
+                    </a>
+
+                    <button type="submit"
+                            class="btn-delete-primary">
+
+                        <i class="bi bi-trash3-fill"></i>
+                        Eliminar votante
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

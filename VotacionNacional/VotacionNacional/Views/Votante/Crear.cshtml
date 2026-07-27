@@ -1,0 +1,211 @@
+﻿@model VotacionNacional.BLL.DTOs.CrearVotanteDto
+
+@{
+    ViewData["Title"] = "Registrar Votante";
+}
+
+<div class="form-page">
+
+    <div class="form-page-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Votantes
+            </span>
+
+            <h1 class="management-title">
+                Registrar votante
+            </h1>
+
+            <p class="management-description">
+                Ingresa la información de la persona que será habilitada para votar.
+            </p>
+        </div>
+
+        <a asp-controller="Votante"
+           asp-action="Index"
+           class="btn-form-back">
+
+            <i class="bi bi-arrow-left"></i>
+            Volver al listado
+
+        </a>
+
+    </div>
+
+    <div class="form-card">
+
+        <div class="form-card-banner">
+
+            <div class="form-banner-icon">
+                <i class="bi bi-person-plus-fill"></i>
+            </div>
+
+            <div>
+                <h2>Información del votante</h2>
+                <p>
+                    Completa los datos solicitados para registrar a la persona.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="form-card-body">
+
+            <form asp-controller="Votante"
+                  asp-action="Crear"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="management-alert-error">
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+
+                        <label asp-for="Cedula">
+                            Número de cédula
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-person-vcard"></i>
+
+                            <input asp-for="Cedula"
+                                   class="form-control"
+                                   placeholder="Ejemplo: 1-1234-5678" />
+
+                        </div>
+
+                        <span asp-validation-for="Cedula"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label asp-for="FechaNacimiento">
+                            Fecha de nacimiento
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-calendar3"></i>
+
+                            <input asp-for="FechaNacimiento"
+                                   type="date"
+                                   class="form-control" />
+
+                        </div>
+
+                        <span asp-validation-for="FechaNacimiento"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field form-field-full">
+
+                        <label asp-for="Nombre">
+                            Nombre
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-person"></i>
+
+                            <input asp-for="Nombre"
+                                   class="form-control"
+                                   placeholder="Ingrese el nombre" />
+
+                        </div>
+
+                        <span asp-validation-for="Nombre"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label asp-for="PrimerApellido">
+                            Primer apellido
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-person-lines-fill"></i>
+
+                            <input asp-for="PrimerApellido"
+                                   class="form-control"
+                                   placeholder="Ingrese el primer apellido" />
+
+                        </div>
+
+                        <span asp-validation-for="PrimerApellido"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label asp-for="SegundoApellido">
+                            Segundo apellido
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-person-lines-fill"></i>
+
+                            <input asp-for="SegundoApellido"
+                                   class="form-control"
+                                   placeholder="Ingrese el segundo apellido" />
+
+                        </div>
+
+                        <span asp-validation-for="SegundoApellido"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <a asp-controller="Votante"
+                       asp-action="Index"
+                       class="btn-form-secondary">
+
+                        Cancelar
+
+                    </a>
+
+                    <button type="submit"
+                            class="btn-form-primary">
+
+                        <i class="bi bi-check2-circle"></i>
+                        Registrar votante
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

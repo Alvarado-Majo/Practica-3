@@ -1,8 +1,194 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="vota-home">
+
+    <section class="vota-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                Sistema de votación nacional
+            </span>
+
+            <h1>
+                Tu voto,
+                <span>tu voz, tu futuro.</span>
+            </h1>
+
+            <p>
+                Administra los partidos nacionales y las personas
+                registradas para participar en el proceso de votación.
+            </p>
+
+            <div class="hero-actions">
+
+                <a asp-controller="Partido"
+                   asp-action="Index"
+                   class="btn-vota btn-vota-primary">
+
+                    <i class="bi bi-people-fill"></i>
+                    Ver partidos
+
+                </a>
+
+                <a asp-controller="Votante"
+                   asp-action="Index"
+                   class="btn-vota btn-vota-outline">
+
+                    <i class="bi bi-person-vcard"></i>
+                    Ver votantes
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="ballot-glow"></div>
+
+            <div class="ballot-paper">
+                <i class="bi bi-check-lg"></i>
+            </div>
+
+            <div class="ballot-box">
+
+                <div class="ballot-slot"></div>
+
+                <div class="ballot-front">
+
+                    <div class="ballot-check">
+                        <i class="bi bi-check-lg"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="home-options">
+
+        <a asp-controller="Votante"
+           asp-action="Index"
+           class="option-card">
+
+            <div class="option-icon option-icon-teal">
+                <i class="bi bi-person-vcard"></i>
+            </div>
+
+            <div class="option-information">
+
+                <span class="option-category">
+                    Administración
+                </span>
+
+                <h2>Votantes</h2>
+
+                <p>
+                    Consulta, registra, edita y elimina las personas
+                    autorizadas para votar.
+                </p>
+
+                <span class="option-link">
+                    Gestionar votantes
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </a>
+
+        <a asp-controller="Partido"
+           asp-action="Index"
+           class="option-card">
+
+            <div class="option-icon option-icon-green">
+                <i class="bi bi-people-fill"></i>
+            </div>
+
+            <div class="option-information">
+
+                <span class="option-category">
+                    Administración
+                </span>
+
+                <h2>Partidos</h2>
+
+                <p>
+                    Consulta, registra, edita y elimina los partidos
+                    nacionales participantes.
+                </p>
+
+                <span class="option-link">
+                    Gestionar partidos
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </a>
+
+    </section>
+
+    <section class="information-section">
+
+        <div class="information-title">
+            <span>Plataforma electoral</span>
+            <h2>Un sistema claro, seguro y organizado</h2>
+        </div>
+
+        <div class="information-grid">
+
+            <div class="information-card">
+
+                <i class="bi bi-shield-check"></i>
+
+                <div>
+                    <h3>Control seguro</h3>
+                    <p>
+                        Gestiona los registros desde una plataforma
+                        centralizada.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="information-card">
+
+                <i class="bi bi-eye"></i>
+
+                <div>
+                    <h3>Transparencia</h3>
+                    <p>
+                        Mantén visible y organizada la información
+                        necesaria para la votación.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="information-card">
+
+                <i class="bi bi-person-check"></i>
+
+                <div>
+                    <h3>Participación</h3>
+                    <p>
+                        Facilita el registro de las personas y partidos
+                        participantes.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </div>

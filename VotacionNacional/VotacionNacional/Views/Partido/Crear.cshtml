@@ -1,0 +1,167 @@
+﻿@model VotacionNacional.BLL.DTOs.CrearPartidoDTO
+
+@{
+    ViewData["Title"] = "Nuevo Partido";
+}
+
+<div class="form-page">
+
+    <div class="form-page-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Partidos
+            </span>
+
+            <h1 class="management-title">
+                Registrar partido
+            </h1>
+
+            <p class="management-description">
+                Ingresa la información del nuevo partido participante.
+            </p>
+        </div>
+
+        <a asp-controller="Partido"
+           asp-action="Index"
+           class="btn-form-back">
+
+            <i class="bi bi-arrow-left"></i>
+            Volver al listado
+
+        </a>
+
+    </div>
+
+    <div class="form-card">
+
+        <div class="form-card-banner">
+
+            <div class="form-banner-icon">
+                <i class="bi bi-people-fill"></i>
+            </div>
+
+            <div>
+                <h2>Información del partido</h2>
+                <p>
+                    Completa los datos solicitados para registrar el partido.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="form-card-body">
+
+            <form asp-controller="Partido"
+                  asp-action="Crear"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="management-alert-error">
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-field form-field-full">
+
+                        <label asp-for="Nombre">
+                            Nombre del partido
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-building"></i>
+
+                            <input asp-for="Nombre"
+                                   class="form-control"
+                                   placeholder="Ejemplo: Los ticos" />
+
+                        </div>
+
+                        <span asp-validation-for="Nombre"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label asp-for="Siglas">
+                            Siglas
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-fonts"></i>
+
+                            <input asp-for="Siglas"
+                                   class="form-control"
+                                   placeholder="Ejemplo: LT" />
+
+                        </div>
+
+                        <span asp-validation-for="Siglas"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="form-field">
+
+                        <label asp-for="ImagenUrl">
+                            URL del logo
+                        </label>
+
+                        <div class="input-with-icon">
+
+                            <i class="bi bi-image"></i>
+
+                            <input asp-for="ImagenUrl"
+                                   class="form-control"
+                                   placeholder="https://sitio.com/logo.png" />
+
+                        </div>
+
+                        <span asp-validation-for="ImagenUrl"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <a asp-controller="Partido"
+                       asp-action="Index"
+                       class="btn-form-secondary">
+
+                        Cancelar
+
+                    </a>
+
+                    <button type="submit"
+                            class="btn-form-primary">
+
+                        <i class="bi bi-check2-circle"></i>
+                        Registrar partido
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
