@@ -2,5 +2,4 @@
   <Project Path="VotacionNacional.API/VotacionNacional.API.csproj" Id="63b0d0b5-5df2-48e1-8d4a-c2ff39845725" />
   <Project Path="VotacionNacional.BILL/VotacionNacional.BLL.csproj" />
   <Project Path="VotacionNacional.DAL/VotacionNacional.DAL.csproj" />
-  <Project Path="VotacionNacional/VotacionNacional.csproj" />
 </Solution>
