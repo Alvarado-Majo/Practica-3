@@ -1,0 +1,145 @@
+﻿@model IEnumerable<VotacionNacional.BLL.DTOs.MostrarPartidoDTO>
+
+@{
+    ViewData["Title"] = "Resultados";
+}
+
+<div class="management-page">
+
+    <div class="management-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Resultados
+            </span>
+
+            <h1 class="management-title">
+                Resultados de la votación
+            </h1>
+
+            <p class="management-description">
+                Consulta la cantidad de votos obtenidos por cada partido político.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="management-card">
+
+        <div class="management-card-header">
+
+            <div>
+                <h2>Resultados electorales</h2>
+                <p>Conteo actual de votos registrados.</p>
+            </div>
+
+            <span class="management-count">
+                @(Model?.Sum(p => p.Votos) ?? 0) votos emitidos
+            </span>
+
+        </div>
+
+        <div class="management-card-body">
+
+            @if (Model == null || !Model.Any())
+            {
+                <div class="management-empty">
+
+                    <div class="management-empty-icon">
+                        <i class="bi bi-bar-chart-fill"></i>
+                    </div>
+
+                    <div>
+                        <h3>No hay resultados disponibles</h3>
+
+                        <p>
+                            Todavía no se han registrado votos.
+                        </p>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+
+                    <table class="table management-table">
+
+                        <thead>
+                            <tr>
+                                <th>Posición</th>
+                                <th>Partido</th>
+                                <th>Siglas</th>
+                                <th class="text-center">Votos</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @{
+                                int posicion = 1;
+                            }
+
+                            @foreach (var partido in Model.OrderByDescending(x => x.Votos))
+                            {
+                                <tr>
+
+                                    <td>
+                                        <span class="row-number">
+                                            #@posicion
+                                        </span>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="person-cell">
+
+                                            @if (!string.IsNullOrWhiteSpace(partido.ImagenUrl))
+                                            {
+                                                <img src="@partido.ImagenUrl"
+                                                     alt="@partido.Nombre"
+                                                     style="width:50px;height:50px;object-fit:contain;"
+                                                     class="me-3" />
+                                            }
+
+                                            <div>
+                                                <strong>
+                                                    @partido.Nombre
+                                                </strong>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            @partido.Siglas
+                                        </strong>
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        <span class="badge bg-success fs-6">
+                                            @partido.Votos
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+                                posicion++;
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

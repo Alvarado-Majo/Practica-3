@@ -33,10 +33,12 @@ builder.Services.AddDbContext<VotacionDbContext>(options =>
 // Repositorios
 builder.Services.AddScoped<IVotanteRepository, VotanteRepository>();
 builder.Services.AddScoped<IPartidoRepository, PartidoRepository>();
+builder.Services.AddScoped<IVotoRepository, VotoRepository>();
 
 // Servicios
 builder.Services.AddScoped<IVotanteService, VotanteService>();
 builder.Services.AddScoped<IPartidoService, PartidoService>();
+builder.Services.AddScoped<IVotacionService,VotacionService>();
 
 // Permite que el MVC consuma la API
 builder.Services.AddCors(options =>

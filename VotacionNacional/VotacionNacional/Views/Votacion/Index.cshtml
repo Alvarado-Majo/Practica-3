@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Proceso de votación";
+}
+
+<div class="form-page">
+
+    <div class="form-page-header">
+
+        <div>
+            <span class="management-eyebrow">
+                Elecciones
+            </span>
+
+            <h1 class="management-title">
+                Proceso de votación
+            </h1>
+
+            <p class="management-description">
+                Ingrese su número de cédula para verificar que se encuentra inscrito en el padrón electoral.
+            </p>
+        </div>
+
+    </div>
+
+    @if (TempData["Exito"] != null)
+    {
+        <div class="alert alert-success management-alert-success">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>@TempData["Exito"]</span>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger management-alert-error">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>@TempData["Error"]</span>
+        </div>
+    }
+
+    <div class="form-card">
+
+        <div class="form-card-banner">
+
+            <div class="form-banner-icon">
+                <i class="bi bi-person-vcard-fill"></i>
+            </div>
+
+            <div>
+                <h2>Validar votante</h2>
+                <p>
+                    Digite la cédula para continuar con el proceso.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="form-card-body">
+
+            <form asp-action="ValidarCedula" method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div class="form-field">
+
+                    <label for="cedula">
+                        Número de cédula
+                    </label>
+
+                    <div class="input-with-icon">
+
+                        <i class="bi bi-person-vcard"></i>
+
+                        <input type="text"
+                               id="cedula"
+                               name="cedula"
+                               class="form-control"
+                               placeholder="Ejemplo: 1-1234-5678"
+                               required />
+
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button type="submit"
+                            class="btn-form-primary">
+
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+                        Continuar
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

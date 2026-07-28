@@ -16,7 +16,7 @@ namespace VotacionNacional.DAL.Repositories
         }
         public async Task<List<Partido>> ObtenerPartidosAsync()
         {
-            return await _context.Partidos.OrderBy(p => p.Nombre)
+            return await _context.Partidos.OrderBy(p => p.Nombre).Include(p => p.Votos)
                 .ToListAsync();
 
         }
